@@ -12,8 +12,8 @@ all: main.o hashTable.o cppLists.o graphviz.o
 main.o: main.cpp
 	g++ $(CFLAGS) main.cpp
 
-hashTable.o: hashTable.cpp
-	g++ $(CFLAGS) hashTable.cpp
+hashTable.o: hashTable/hashTable.cpp
+	g++ $(CFLAGS) hashTable/hashTable.cpp
 
 cppLists.o: cppLists/cppLists.cpp
 	g++ $(CFLAGS) cppLists/cppLists.cpp

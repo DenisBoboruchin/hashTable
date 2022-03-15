@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include "../cppLists/cppLists.h"
 
-class hashTable
+class CHashTbl
 {
 private:
-    struct lists*   lists_  = NULL;
+    CLists*         lists_  = NULL;
     int             size_   =    0;
+
 public:
-    
+    explicit        CHashTbl (int size);
+                    ~CHashTbl ();  
+
+    int             Dump ();  
 };
