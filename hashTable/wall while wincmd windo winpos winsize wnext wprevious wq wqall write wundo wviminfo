@@ -27,20 +27,7 @@ int CHashTbl::insert (ElemType data)
 {
     int index = Hash_ ((char*) &data, sizeof (data));
 
-    //find same 
-
     lists_[index].ListInsertHead (data);
-
-    return NOMISTAKE;
-}
-
-int CHashTbl::del (ElemType data)
-{
-    int index = Hash_ ((char*) &data, sizeof (data));
-    
-    //find same
-    
-
 
     return NOMISTAKE;
 }

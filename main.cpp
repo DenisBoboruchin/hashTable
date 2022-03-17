@@ -5,7 +5,7 @@ int main ()
 {
     CHashTbl t1 (10);
 
-    t1.Dump ();
+    t1.dump ();
     
 
     return 0;
