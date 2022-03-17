@@ -6,12 +6,14 @@
 
 #include "../graphviz/graphviz.h"
 
-typedef double ElemType;
+typedef int ElemType;
 
 const int           DESTROYED   =   -213;
 
 const int           NOMISTAKE   =      0;
 const int           MISTAKE     =      1;
+
+const int           NOTFOUND    =   -583;
 
 struct item
 {
@@ -39,7 +41,9 @@ public:
     int             ListDelete        (int num);
     int             ListDeleteHead    ();
     int             ListDeleteTail    ();
-    
+   
+    int             FoundElem         (ElemType data);
+
     int             ListDump          ();
 };
 

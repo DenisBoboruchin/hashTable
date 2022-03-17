@@ -27,7 +27,10 @@ int CHashTbl::insert (ElemType data)
 {
     int index = Hash_ ((char*) &data, sizeof (data));
 
-    //find same 
+    int position = lists_[index].FoundElem (data);
+
+    if (position != NOTFOUND)
+        return NOMISTAKE;                           //done counter 
 
     lists_[index].ListInsertHead (data);
 
@@ -38,9 +41,18 @@ int CHashTbl::del (ElemType data)
 {
     int index = Hash_ ((char*) &data, sizeof (data));
     
-    //find same
+    int position = lists_[index].FoundElem (data);
     
+    if (position == NOTFOUND)
+    {
+        printf ("Element ");
+        printf (ELEM_FMT, data);
+        printf (" not found\n");
 
+        return NOMISTAKE;
+    }
+    
+    lists_[index].ListDelete (position); 
 
     return NOMISTAKE;
 }
@@ -101,5 +113,5 @@ int CHashTbl::Hash_ (char* key, unsigned int len)
   h *= m;
   h ^= h >> 15;
 
-  return h / size_;
+  return h % size_;
 }
