@@ -7,7 +7,7 @@ CHashTbl::CHashTbl (int size) :
 
 CHashTbl::~CHashTbl ()
 {
-    //delete (lists_);
+    delete[] lists_;
     size_ = DESTROYED;
 }
 

@@ -13,12 +13,14 @@ void DotCtor (const char* rankdir, const char* color)
     fprintf (dotFile, "\tnode[color=%s, fontsize = 8];\n", color);
 }
 
-void DotElemCtor (void* index, int data, void* next, void* prev, const char* shape, 
+void DotElemCtor (void* index, ElemType data, void* next, void* prev, const char* shape, 
         const char* color, const char* label, const char* style)
 {
     fprintf (dotFile, "\t%s%p[shape=%s, ", label, index, shape); 
-    fprintf (dotFile, "label=\"addres\\n%p|<data> data\\n%4d|{<next>next:%p|<prev>prev:%p}\", ", 
-            index, data, next, prev);
+    fprintf (dotFile, "label=\"addres\\n%p|<data> data\\n", index);
+    fprintf (dotFile, ELEM_FMT, data);
+    
+    fprintf (dotFile, "|{<next>next:%p|<prev>prev:%p}\", ", next, prev);
     fprintf (dotFile, "fillcolor=\"%s\", style=%s];\n", color, style);
 }
 /*
@@ -51,6 +53,6 @@ void DotEnd (void)
 
     fclose (dotFile);
 
-    system ("dot dump/dot.dot -q -Tpng -o dump/dump.png");
+    system ("dot dump/dot.dot -Tpng -q -o dump/dump.png");
     system ("rm  dump/dot.dot");
 }

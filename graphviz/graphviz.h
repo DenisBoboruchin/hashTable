@@ -4,9 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef double ElemType;
+#define ELEM_FMT "%lf"
+
 void    DotCtor         (const char* rankdir = "LR", const char *color = "darkkhaki");
 
-void    DotElemCtor     (void* i, int data = 0, void* next = 0, void* prev = 0, 
+void    DotElemCtor     (void* i, ElemType data = 0, void* next = 0, void* prev = 0, 
         const char* shape = "record", const char* color = "darkslategray1",
         const char* label = "elem", const char* style = "filled");
 //void    DotInfoElemCtor (int capacity, int size, int head, int tail, 

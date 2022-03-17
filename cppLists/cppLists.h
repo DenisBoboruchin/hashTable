@@ -6,7 +6,7 @@
 
 #include "../graphviz/graphviz.h"
 
-typedef int ElemType;
+typedef double ElemType;
 
 const int           DESTROYED   =   -213;
 
