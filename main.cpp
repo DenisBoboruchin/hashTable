@@ -3,16 +3,16 @@
 
 int main ()
 {
-    CHashTbl t1 (10);
+    CHashTbl t1 (50);
 
 
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 200; i++)
         t1.insert (i);
     
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 200; i++)
         t1.insert (i);
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 15; i++)
         t1.del (i);
 
     t1.dump (); 

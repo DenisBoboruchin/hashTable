@@ -3,12 +3,25 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 #include "../graphviz/graphviz.h"
 
-typedef int ElemType;
+//--------------------------------------------------------------------------
+//---------------------------CHOOSE-TYPE-OF-LISTS---------------------------
+//--------------------------------------------------------------------------
+#define INT
 
-const int           DESTROYED   =   -213;
+/*
+typedef enum 
+{
+        MIS = 0,
+        INT,
+        DOUBLE,
+        STR  
+}   NumType;*/
+
+const int           DESTROYSZ   = -12323;
 
 const int           NOMISTAKE   =      0;
 const int           MISTAKE     =      1;
@@ -18,7 +31,8 @@ const int           NOTFOUND    =   -583;
 struct item
 {
 	ElemType		data	    =	   0;
-	struct item*	next	    =	NULL;
+	
+    struct item*	next	    =	NULL;
     struct item*    prev        =   NULL;
 };
 
@@ -27,6 +41,8 @@ class CLists
 private:
 	struct item*    fictElem_   =   NULL;
     int             size_       =      0;
+    
+   //NumType         Type_       =    INT;       //you must change it
 
     int             ListOk_           ();
 
@@ -46,5 +62,7 @@ public:
 
     int             ListDump          ();
 };
+
+//NumType     CheckType (const char* type);
 
 #endif
