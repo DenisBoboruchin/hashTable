@@ -47,7 +47,7 @@ int CHashTbl::del (ElemType data)
     {
         printf ("Element ");
         printf (ELEM_FMT, data);
-        printf (" not found\n");
+        printf ("not found\n");
 
         return NOMISTAKE;
     }

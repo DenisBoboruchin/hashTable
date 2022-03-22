@@ -203,11 +203,11 @@ int CLists::ListDump ()
 {
     item* nextElem = fictElem_->next;
    
-    DotElemCtor (fictElem_, fictElem_->data, fictElem_->next, fictElem_->prev, "record", "grey");
+    DotElemCtor (fictElem_, fictElem_->data, fictElem_->next, fictElem_->prev, 0, "record", "grey");
 
     for (int i = 0; i < size_; i++)
     {
-        DotElemCtor (nextElem, nextElem->data, nextElem->next, nextElem->prev);
+        DotElemCtor (nextElem, nextElem->data, nextElem->next, nextElem->prev, nextElem->counter);
 
         nextElem = nextElem->next;
     }

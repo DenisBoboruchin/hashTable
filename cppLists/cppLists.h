@@ -32,14 +32,17 @@ struct item
 {
 	ElemType		data	    =	   0;
 	
+    int             counter     =      0;
+
     struct item*	next	    =	NULL;
     struct item*    prev        =   NULL;
 };
 
 class CLists
 {
+public:
+	struct item*    fictElem_   =   NULL;       //public only for counter
 private:
-	struct item*    fictElem_   =   NULL;
     int             size_       =      0;
     
    //NumType         Type_       =    INT;       //you must change it

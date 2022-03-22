@@ -13,13 +13,15 @@ void DotCtor (const char* rankdir, const char* color)
     fprintf (dotFile, "\tnode[color=%s, fontsize = 8];\n", color);
 }
 
-void DotElemCtor (void* index, ElemType data, void* next, void* prev, const char* shape, 
+void DotElemCtor (void* index, ElemType data, void* next, void* prev, int counter, const char* shape, 
         const char* color, const char* label, const char* style)
 {
     fprintf (dotFile, "\t%s%p[shape=%s, ", label, index, shape); 
     fprintf (dotFile, "label=\"addres\\n%p|<data> data\\n", index);
     fprintf (dotFile, ELEM_FMT, data);
-    
+   
+    fprintf (dotFile, "|counter \\n %d", counter);
+
     fprintf (dotFile, "|{<next>next:%p|<prev>prev:%p}\", ", next, prev);
     fprintf (dotFile, "fillcolor=\"%s\", style=%s];\n", color, style);
 }
