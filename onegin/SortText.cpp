@@ -21,14 +21,14 @@ void SortText(const char* origName, const char* resName)
     struct pointStr* strings = CrtorStrs(numLines, sizeBuf, buffer);
 
     qsort(strings, numLines, sizeof(struct pointStr), (int(*) (const void *, const void *)) Compare);
-    OutputText(resultFile, strings, numLines,"sorted Text");
+    //OutputText(resultFile, strings, numLines,"sorted Text");
 
     qsort(strings, numLines, sizeof(struct pointStr), (int(*) (const void *, const void *)) ReverceCompare);
-    OutputText(resultFile, strings, numLines, "back sorted text");
+    //OutputText(resultFile, strings, numLines, "back sorted text");
 
-    OutputFromBuf(buffer, sizeBuf, resultFile, "original");
+    //OutputFromBuf(buffer, sizeBuf, resultFile, "original");
 
-    Separator(resultFile, "MY BRED");
+    //Separator(resultFile, "MY BRED");
 
     //GenerateBredStanzas(NUMBERSTANZAS, resultFile, strings, numLines);
 

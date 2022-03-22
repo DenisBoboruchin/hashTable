@@ -33,8 +33,9 @@ int main ()
     //for (int i = 0; i < 15; i++)
       //  t1.del (i);
 
-    //t1.dump (); 
-
+    t1.dump (); 
+    
+    free (buffer);
     return 0;
 }
 

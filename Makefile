@@ -7,7 +7,7 @@ CFLAGS = -c -Wall -Wextra -Werror -Walloc-zero -Walloca -Walloca-larger-than=819
             -Wno-missing-field-initializers -Wnarrowing -Wvarargs -fcheck-new -fstrict-overflow -flto-odr-type-merging 	
 
 all: main.o hashTable.o cppLists.o graphviz.o FormatFile.o SortText.o
-	g++ cppLists/cppLists.cpp hashTable/hashTable.cpp graphviz/graphviz.cpp main.cpp -o main
+	g++ cppLists/cppLists.cpp hashTable/hashTable.cpp graphviz/graphviz.cpp onegin/FormatFile.cpp onegin/SortText.cpp main.cpp -o main
 
 main.o: main.cpp
 	g++ $(CFLAGS) main.cpp

@@ -30,10 +30,11 @@ int Compare(const struct pointStr* struct1, const struct pointStr* struct2);
 char* GoodSymbolForCompare(char* str);
 int ReverceCompare(const struct pointStr* struct1, const struct pointStr* struct2);
 char* GoodSymbolForReverceCompare(char* str);
-
+/*
 void OutputText(FILE* resultFile, const struct pointStr* strings, const size_t numLines, const char* text);
 void OutputFromBuf(char* buffer, const size_t sizeBuf, FILE* resultFile, const char* text);
 void Separator(FILE* resultFile, const char* text);
+*/
 /*
 void GenerateBredStanzas(const int NUMBERSTANZAS, FILE* resultFile, const struct pointStr* strings, const size_t numLines);
 void BredGenerateAndOutput(FILE* resultFile, const struct pointStr* strings, const size_t numLines, int j);
