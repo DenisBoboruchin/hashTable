@@ -17,6 +17,7 @@ int main ()
     
     size_t numberLines = NumberLines (buffer, sizeBuf);
 
+    printf ("%d\n", (int) numberLines);
     struct pointStr* strings = CrtorStrs (numberLines, sizeBuf, buffer);
 
     CHashTbl t1 (50);
@@ -36,6 +37,8 @@ int main ()
     t1.dump (); 
     
     free (buffer);
+    //free (strings);
+
     return 0;
 }
 
