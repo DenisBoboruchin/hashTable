@@ -6,7 +6,7 @@ CFLAGS = -c -Wall -Wextra -Werror -Walloc-zero -Walloca -Walloca-larger-than=819
             -Wsuggest-final-types -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef -Wunreachable-code -Wunused -Wvariadic-macros      \
             -Wno-missing-field-initializers -Wnarrowing -Wvarargs -fcheck-new -fstrict-overflow -flto-odr-type-merging 	
 
-all: main.o hashTable.o cppLists.o graphviz.o 
+all: main.o hashTable.o cppLists.o graphviz.o FormatFile.o SortText.o
 	g++ cppLists/cppLists.cpp hashTable/hashTable.cpp graphviz/graphviz.cpp main.cpp -o main
 
 main.o: main.cpp
@@ -20,6 +20,12 @@ cppLists.o: cppLists/cppLists.cpp
 
 graphviz.o: graphviz/graphviz.cpp
 	g++ $(CFLAGS) graphviz/graphviz.cpp
+
+FormatFile.o: onegin/FormatFile.cpp
+	g++ $(CFLAGS) onegin/FormatFile.cpp
+
+SortText.o: onegin/SortText.cpp
+	g++ $(CFLAGS) onegin/SortText.cpp
 
 clean:
 	rm -rf *.out *.o main

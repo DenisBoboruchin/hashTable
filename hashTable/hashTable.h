@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "../cppLists/cppLists.h"
 
-typedef int ElemType;
+//typedef int ElemType;
 
 class CHashTbl
 {
