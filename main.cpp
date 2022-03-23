@@ -4,7 +4,7 @@
 #include "onegin/SortText.h"
 #include "onegin/FormatFile.h"
 
-const char* text        = "text.txt";
+const char* text        = "hashTable.h";
 const char* formText    = "formText.txt";
 
 int main ()
@@ -24,7 +24,7 @@ int main ()
     for (int i = 0; i < (int) numberLines; i++)
         t1.insert (strings[i].str);
 
-    t1.countElem ("First");
+    t1.countElem ("Very");
     //for (int i = 0; i < 200; i++)
      //   t1.insert (i);
     

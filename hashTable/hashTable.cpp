@@ -25,7 +25,13 @@ int CHashTbl::dump ()
 
 int CHashTbl::insert (ElemType data)
 {
-    int index = Hash_ ((char*) &data, sizeof (data));
+    #ifdef STR
+    int index = Hash_ ((const char*) data, (int) strlen (data));
+    
+    #else
+    int index = Hash_ ((const char*) &data, sizeof (data));
+    
+    #endif
 
     struct item* elem = lists_[index].FoundPtrElem (data);
 
@@ -66,7 +72,14 @@ int CHashTbl::del (ElemType data)
 
 int CHashTbl::countElem (ElemType data)
 {
-    int index = Hash_ ((char*) &data, sizeof (data));
+    #ifdef STR
+    int index = Hash_ ((const char*) data, (int) strlen (data));
+    printf ("%d\n", index);
+    
+    #else
+    int index = Hash_ ((const char*) &data, sizeof (data));
+    
+    #endif
 
     struct item* elem = lists_[index].FoundPtrElem (data);
 
@@ -81,7 +94,7 @@ int CHashTbl::countElem (ElemType data)
 
 }
 
-int CHashTbl::Hash_ (char* key, unsigned int len)
+int CHashTbl::Hash_ (const char* key, unsigned int len)
 {
   const unsigned int m      = 0x5bd1e995;
   const unsigned int seed   = 0;
