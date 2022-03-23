@@ -184,6 +184,32 @@ int CLists::FoundElem (ElemType data)
     return NOTFOUND;
 }
 
+struct item* CLists::FoundPtrElem (ElemType data)
+{
+    this->ListOk_ ();
+
+    struct item* nextElem = fictElem_->next;
+
+    for (int index = 0; index < size_; index++)
+    {
+        #ifdef STR
+        if (!strcmp (nextElem->data, data))
+            return nextElem;
+        #endif
+
+        #ifndef STR
+        if (nextElem->data == data)                 
+            return nextElem;
+        #endif
+
+        nextElem = nextElem->next;
+    }
+    
+    this->ListOk_ ();
+
+    return nullptr;
+}
+
 int CLists::ListOk_ ()
 {
     int ERROR = 0;

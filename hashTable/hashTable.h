@@ -20,7 +20,8 @@ public:
 
     int             insert      (ElemType data);
     int             del         (ElemType data);
-    int             dump        ();  
+    int             dump        (); 
+    int             countElem   (ElemType data); 
 };
 
 #endif

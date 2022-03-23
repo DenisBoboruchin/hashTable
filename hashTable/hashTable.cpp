@@ -27,12 +27,19 @@ int CHashTbl::insert (ElemType data)
 {
     int index = Hash_ ((char*) &data, sizeof (data));
 
-    int position = lists_[index].FoundElem (data);
+    struct item* elem = lists_[index].FoundPtrElem (data);
 
-    if (position != NOTFOUND)
-        return NOMISTAKE;                           //done counter 
+    if (elem != nullptr)
+    {   
+        elem->counter++; 
+
+        return NOMISTAKE;                       
+    }
 
     lists_[index].ListInsertHead (data);
+
+    elem = lists_[index].FoundPtrElem (data);
+    elem->counter = 1;
 
     return NOMISTAKE;
 }
@@ -55,6 +62,23 @@ int CHashTbl::del (ElemType data)
     lists_[index].ListDelete (position); 
 
     return NOMISTAKE;
+}
+
+int CHashTbl::countElem (ElemType data)
+{
+    int index = Hash_ ((char*) &data, sizeof (data));
+
+    struct item* elem = lists_[index].FoundPtrElem (data);
+
+    if (elem != nullptr)
+        return elem->counter;                       
+    
+    printf ("Element ");
+    printf (ELEM_FMT, data);
+    printf (" not found\n");
+
+    return NOMISTAKE;
+
 }
 
 int CHashTbl::Hash_ (char* key, unsigned int len)

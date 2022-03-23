@@ -40,9 +40,8 @@ struct item
 
 class CLists
 {
-public:
-	struct item*    fictElem_   =   NULL;       //public only for counter
 private:
+	struct item*    fictElem_   =   NULL;       //public only for counter
     int             size_       =      0;
     
    //NumType         Type_       =    INT;       //you must change it
@@ -62,6 +61,7 @@ public:
     int             ListDeleteTail    ();
    
     int             FoundElem         (ElemType data);
+    struct item*    FoundPtrElem      (ElemType data);
 
     int             ListDump          ();
 };

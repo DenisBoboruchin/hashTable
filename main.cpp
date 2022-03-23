@@ -17,14 +17,14 @@ int main ()
     
     size_t numberLines = NumberLines (buffer, sizeBuf);
 
-    printf ("%d\n", (int) numberLines);
     struct pointStr* strings = CrtorStrs (numberLines, sizeBuf, buffer);
 
-    CHashTbl t1 (50);
+    CHashTbl t1 ((int) numberLines / 2);
 
     for (int i = 0; i < (int) numberLines; i++)
         t1.insert (strings[i].str);
 
+    t1.countElem ("First");
     //for (int i = 0; i < 200; i++)
      //   t1.insert (i);
     
@@ -36,7 +36,7 @@ int main ()
 
     t1.dump (); 
     
-    free (buffer);
+    //free (buffer);
     //free (strings);
 
     return 0;
