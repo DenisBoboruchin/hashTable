@@ -6,7 +6,7 @@ ____
 
 #### To clone the repository run:
 ```
-git clone https://github.com/DenisBoboruchin/hashTable```
+git clone https://github.com/DenisBoboruchin/hashTable
 ```
 #### To run the program main.cpp use
 ```
