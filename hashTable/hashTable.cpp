@@ -13,6 +13,8 @@ CHashTbl::~CHashTbl ()
 
 int CHashTbl::dump ()
 {
+    HashOk_ ();
+
     DotCtor ();
 
     for (int i = 0; i < size_; i++)
@@ -20,11 +22,13 @@ int CHashTbl::dump ()
 
     DotEnd ();
 
-    return NOMISTAKE;
+    return HashOk_ ();
 }
 
 int CHashTbl::insert (ElemType data)
 {
+    HashOk_ ();
+
     #ifdef STR
     int index = Hash_ ((const char*) data, (int) strlen (data));
     
@@ -47,11 +51,13 @@ int CHashTbl::insert (ElemType data)
     elem = lists_[index].FoundPtrElem (data);
     elem->counter = 1;
 
-    return NOMISTAKE;
+    return HashOk_ ();
 }
 
 int CHashTbl::del (ElemType data)
 {
+    HashOk_ ();
+
     #ifdef STR
     int index = Hash_ ((const char*) data, (int) strlen (data));
     
@@ -73,11 +79,13 @@ int CHashTbl::del (ElemType data)
     
     lists_[index].ListDelete (position); 
 
-    return NOMISTAKE;
+    return HashOk_ ();
 }
 
 int CHashTbl::countElem (ElemType data)
 {
+    HashOk_ ();
+
     #ifdef STR
     int index = Hash_ ((const char*) data, (int) strlen (data));
     
@@ -91,8 +99,25 @@ int CHashTbl::countElem (ElemType data)
     if (elem != nullptr)
         return elem->counter;                       
     
-    return 0;
+    HashOk_ ();
 
+    return 0;
+}
+
+int CHashTbl::HashOk_ ()
+{
+    int ERRORS = NOMISTAKE;
+
+    if (size_ < 0)
+    {
+        printf ("ERROR!!! Incorrect size\n");
+
+        ERRORS |= MISTAKE;
+    }
+
+    assert (ERRORS == NOMISTAKE);
+
+    return ERRORS;
 }
 
 int CHashTbl::Hash_ (const char* key, unsigned int len)

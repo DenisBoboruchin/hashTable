@@ -13,6 +13,7 @@ private:
     int             size_       =    0;
   
     int             Hash_       (const char* key, unsigned int len);
+    int             HashOk_     ();
 
 public:
     explicit        CHashTbl    (int size);
