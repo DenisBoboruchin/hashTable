@@ -52,8 +52,14 @@ int CHashTbl::insert (ElemType data)
 
 int CHashTbl::del (ElemType data)
 {
-    int index = Hash_ ((char*) &data, sizeof (data));
+    #ifdef STR
+    int index = Hash_ ((const char*) data, (int) strlen (data));
     
+    #else
+    int index = Hash_ ((const char*) &data, sizeof (data));
+    
+    #endif
+
     int position = lists_[index].FoundElem (data);
     
     if (position == NOTFOUND)
@@ -74,7 +80,6 @@ int CHashTbl::countElem (ElemType data)
 {
     #ifdef STR
     int index = Hash_ ((const char*) data, (int) strlen (data));
-    printf ("%d\n", index);
     
     #else
     int index = Hash_ ((const char*) &data, sizeof (data));
@@ -86,11 +91,7 @@ int CHashTbl::countElem (ElemType data)
     if (elem != nullptr)
         return elem->counter;                       
     
-    printf ("Element ");
-    printf (ELEM_FMT, data);
-    printf (" not found\n");
-
-    return NOMISTAKE;
+    return 0;
 
 }
 

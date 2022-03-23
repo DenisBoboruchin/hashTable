@@ -4,7 +4,7 @@
 #include "onegin/SortText.h"
 #include "onegin/FormatFile.h"
 
-const char* text        = "hashTable.h";
+const char* text        = "main.cpp";
 const char* formText    = "formText.txt";
 
 int main ()
@@ -19,25 +19,26 @@ int main ()
 
     struct pointStr* strings = CrtorStrs (numberLines, sizeBuf, buffer);
 
-    CHashTbl t1 ((int) numberLines / 2);
+    CHashTbl t1 ((int) numberLines / 4);
 
     for (int i = 0; i < (int) numberLines; i++)
         t1.insert (strings[i].str);
 
-    t1.countElem ("Very");
-    //for (int i = 0; i < 200; i++)
-     //   t1.insert (i);
+    printf ("Very found %d times\n", t1.countElem ("Very"));
+    /*
+    for (int i = 0; i < 200; i++)
+        t1.insert (i);
     
-   // for (int i = 0; i < 200; i++)
-     //   t1.insert (i);
+    for (int i = 0; i < 200; i++)
+        t1.insert (i);
 
-    //for (int i = 0; i < 15; i++)
-      //  t1.del (i);
-
+    for (int i = 0; i < 15; i++)
+        t1.del (i);
+*/
     t1.dump (); 
     
-    //free (buffer);
-    //free (strings);
+    free (buffer);
+    free (strings);
 
     return 0;
 }
