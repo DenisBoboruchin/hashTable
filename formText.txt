@@ -13,7 +13,8 @@ struct pointStr strings  CrtorStrs numberLines sizeBuf buffer
 CHashTbl t int numberLines  
 for int i   i  int numberLines i
 tinsert stringsistr
-printf Very found d timesn tcountElem Very
+const char word  Very
+printf s found d timesn word tcountElem word
 for int i   i   i
 tinsert i
 for int i   i   i
