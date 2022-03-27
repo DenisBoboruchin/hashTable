@@ -28,7 +28,7 @@ int FormFile(const char* nameIn, const char* nameOut)
 
 bool CheckCorrect(int c)
 {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '\n') || (c == ' '))
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '\n') || (c == ' ') || (c == '\t'))
         return true;
     else
         return false;

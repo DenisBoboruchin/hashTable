@@ -119,7 +119,7 @@ int CheckNewLine(char* buffer)
 {
     assert (buffer != NULL);
 
-    if ((*(buffer) == '\n') || (*(buffer) == ' '))
+    if ((*(buffer) == '\n') || (*(buffer) == ' ') || (*(buffer) == '\t'))
     {
         *buffer = '\0';
 

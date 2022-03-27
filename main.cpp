@@ -24,7 +24,7 @@ int main ()
     for (int i = 0; i < (int) numberLines; i++)
         t1.insert (strings[i].str);
 
-    const char* word = "Very";
+    const char* word = "Include";
 
     printf ("\"%s\" found %d times\n", word, t1.countElem (word));
     /*
